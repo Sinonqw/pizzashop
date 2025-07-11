@@ -1,48 +1,70 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import ToggleButton from "./ToggleButton";
-import HeroText from "./heroComponents/HeroText";
-import HeroVideo from "./heroComponents/HeroVideo";
+import { useState } from 'react';
+import Image       from 'next/image';
+
+import ToggleButton from './heroComponents/ToggleButton';
+import HeroText     from './heroComponents/HeroText';
+import HeroVideo    from './heroComponents/HeroVideo';
+import ModalVideo   from './heroComponents/ModalVideo';
 
 export default function Hero() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <section className="h-[100vh]">
-        
-      <div className="container relative flex justify-between items-center">
-        <Image width="518" height="230" alt="" src="/hero/hero-bg.svg" className="absolute top-0 left-20"/>
+    <section className="relative h-screen mb-25">
+      {/* декоративный SVG‑фон */}
+      <Image
+        src="/hero/hero-bg.svg"
+        alt=""
+        width={518}
+        height={230}
+        className="pointer-events-none absolute left-20 top-0 select-none"
+      />
+
+      {/* основной контент                                           */}
+      <div className="container flex items-center justify-between gap-6">
+        {/* ---------- левая колонка ---------- */}
         <div className="max-w-[540px]">
           <HeroText />
-          <HeroVideo />
+          <HeroVideo onPlay={() => setOpen(true)} />
           <ToggleButton />
         </div>
 
-        <div className="relative">
+        {/* ---------- правая колонка ---------- */}
+        <div className="relative shrink-0">
           <Image
-            className="rounded-[46px]"
+            src="/hero/image.jpg"
+            alt="main pizza"
             width={456}
             height={684}
-            alt="bg"
-            src="/hero/image.jpg"
+            className="rounded-[46px]"
           />
-          <div>
-            <Image
-              className="absolute bottom-[-75px] left-[-115px] z-10"
-              width={213}
-              height={226}
-              alt="fries"
-              src="/forbg/fries.png"
-            />
-            <Image
-              className="absolute top-[-118px] right-[-115px] z-10"
-              width={252}
-              height={252}
-              alt="pizza"
-              src="/forbg/pizza.png"
-            />
-          </div>
+
+          {/* декоративные PNG поверх */}
+          <Image
+            src="/forbg/fries.png"
+            alt="fries"
+            width={213}
+            height={226}
+            className="absolute -bottom-[75px] -left-[115px] z-10"
+          />
+          <Image
+            src="/forbg/pizza.png"
+            alt="pizza"
+            width={252}
+            height={252}
+            className="absolute -top-[118px] -right-[115px] z-10"
+          />
         </div>
       </div>
+
+      {/* модалка с видео                                           */}
+      <ModalVideo
+        open={open}
+        onClose={() => setOpen(false)}
+        src="/hero/pizza.mp4"
+      />
     </section>
   );
 }

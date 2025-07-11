@@ -12,8 +12,8 @@ export default function ToggleButton() {
         
         {/* Подвижный фон под активной кнопкой */}
         <div
-          className={`absolute top-0 w-1/2 h-full rounded-full bg-gradient-to-br from-[#ff5d29] to-[#fe9c1c] transition-all duration-300 ease-in-out z-0 ${
-            active === "left" ? "left-0" : "left-1/2"
+          className={`absolute top-0 w-9/15 h-full rounded-full bg-gradient-to-br from-[#ff5d29] to-[#fe9c1c] transition-all duration-300 ease-in-out z-0 ${
+            active === "left" ? "left-0" : "left-5/12"
           }`}
         />
 

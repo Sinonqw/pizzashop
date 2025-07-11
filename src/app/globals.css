@@ -18,3 +18,6 @@ body {
 button {
   cursor: pointer;
 }
+button:hover {
+  transform: scale(1.1);
+}
