@@ -14,7 +14,6 @@ export const eventCards: EventCard[] = [
     title: 'HOW WE COOKING',
     image: '/events/howwecooking.jpg', // Убедитесь, что путь к изображению правильный
     alt: 'Chef cooking pizza',
-    span: 'col-span-2', // Эта карточка занимает 2 столбца
   },
   {
     id: 'our-blog',
@@ -27,7 +26,6 @@ export const eventCards: EventCard[] = [
     title: 'TWO PIZZA FOR 1 PRICE',
     image: '/events/two-pizza.jpg',
     alt: 'Two pizzas',
-    span: 'col-span-2', // Эта карточка занимает 2 столбца
   },
   {
     id: 'kitchen-tour',
@@ -67,7 +65,7 @@ export interface DecorativeElement {
 
 export const decorativeElements: DecorativeElement[] = [
   // Позиции настроены согласно второму скриншоту и общему макету
-  { id: 'egg', image: '/events/egg.svg', alt: 'Egg', width: 220, height: 220, className: 'absolute top-[35%] left-[-5%] z-10 hidden lg:block' }, // Чуть ниже
-  { id: 'taco', image: '/events/taco.svg', alt: 'Taco', width: 260, height: 280, className: 'absolute top-[55%] right-[5%] -translate-y-1/2 z-10 hidden lg:block' }, // Тако справа
+  { id: 'egg', image: '/events/egg.svg', alt: 'Egg', width: 220, height: 220, className: 'absolute top-[20%] left-[-7%] z-10 hidden lg:block' }, // Чуть ниже
+  { id: 'taco', image: '/events/taco.svg', alt: 'Taco', width: 260, height: 280, className: 'absolute top-[50%] right-[-7%] -translate-y-1/2 z-10 hidden lg:block' }, // Тако справа
   { id: 'coffee', image: '/events/coffee.svg', alt: 'Coffee', width: 200, height: 200, className: 'absolute bottom-[-4%] left-[-4%] z-10 hidden lg:block' }, // Кофе снизу слева
 ];
