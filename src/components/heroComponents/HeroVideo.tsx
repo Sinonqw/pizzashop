@@ -36,7 +36,7 @@ export default function HeroVideo({ onPlay }: { onPlay: () => void }) {
             height={23}
             src="/hero/play.svg"
             alt="play"
-            className="absolute inset-0 m-auto"
+            className="absolute inset-0 m-auto bottom-1 left-1 hover:rotate-360 duration-300"
           />
         </button>
       </div>
