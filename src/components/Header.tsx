@@ -1,21 +1,15 @@
 "use client";
-import Link from "next/link";
 import { Button } from "./Button";
 import Image from "next/image";
 import MenuLink from "./MenuLink";
+import Logo from "./Logo";
 
 export function Header() {
   return (
     <header className="py-6 ">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link
-            className="font-extrabold text-[34px] leading-[110%] bg-gradient-to-br from-[#ff6432] to-[#ffa228] bg-clip-text text-transparent transition-all duration-300 hover:brightness-125"
-            href="/"
-          >
-            pizzashop
-          </Link>
+          <Logo/>
 
           {/* Navigation */}
           <nav>
