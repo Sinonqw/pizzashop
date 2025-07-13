@@ -1,9 +1,9 @@
 'use client'
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 
 interface PriceCounterProps {
-    baseCost: string;      
-    selectedSize: string;   
+    baseCost: string;
+    selectedSize: string; 
 }
 
 export function PriceCounter({ baseCost, selectedSize }: PriceCounterProps) {
@@ -13,24 +13,21 @@ export function PriceCounter({ baseCost, selectedSize }: PriceCounterProps) {
         return parseFloat(baseCost.replace(',', '.'));
     }, [baseCost]);
 
-    useEffect(() => {
-        setQuantity(1);
-    }, [selectedSize]); 
 
     const currentPrice = useMemo(() => {
-        let price = numericBaseCost; 
-
+        let price = numericBaseCost;
 
         if (selectedSize === '22') {
-            price *= 0.90; 
+            price *= 0.90;
         } else if (selectedSize === '33') {
-            price *= 1.10; 
+            price *= 1.10;
         }
 
-        price *= quantity; 
+        price *= quantity;
 
         return price.toFixed(2).replace('.', ',');
-    }, [numericBaseCost, selectedSize, quantity]); 
+    }, [numericBaseCost, selectedSize, quantity]);
+
 
     const baseButtonClasses =
         "w-8 h-8 rounded-full flex items-center justify-center " +
@@ -43,7 +40,6 @@ export function PriceCounter({ baseCost, selectedSize }: PriceCounterProps) {
         "bg-[linear-gradient(215deg,_#ff5924_0%,_#ffa229_100%)] " +
         "hover:scale-105 hover:shadow-[0_0_8px_0_rgba(255,162,41,0.6)]";
 
-    // Классы для кнопки уменьшения (-) с прозрачным фоном и обводкой
     const minusButtonClasses =
         baseButtonClasses +
         "bg-transparent relative " +
@@ -58,7 +54,7 @@ export function PriceCounter({ baseCost, selectedSize }: PriceCounterProps) {
                 overflow-hidden
             "
             style={{
-                background: '#a3a3a3', // Цвет обводки
+                background: '#a3a3a3',
                 mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                 maskComposite: 'exclude',
                 WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -71,46 +67,40 @@ export function PriceCounter({ baseCost, selectedSize }: PriceCounterProps) {
         setQuantity(prev => Math.max(1, prev - 1));
     };
 
-
     const handleIncrease = () => {
         setQuantity(prev => prev + 1);
     };
 
     return (
         <div className="flex items-center gap-12 w-full">
-           
             <div
                 className="text-white text-3xl font-normal text-left"
                 style={{
                     textShadow: '0 0 10px rgba(255,255,255,0.4)',
-                    minWidth: '80px' 
+                    minWidth: '80px'
                 }}
             >
                 {currentPrice}<sup className="text-lg font-light">$</sup>
             </div>
 
-
             <div className="flex items-center gap-2">
-             
                 <button
                     className={minusButtonClasses}
                     onClick={handleDecrease}
                 >
-                    {minusButtonBorder} 
-                    <span className={`relative z-10 ${buttonTextStyles} text-[#a3a3a3]`}>-</span> {/* Текст "-" */}
+                    {minusButtonBorder}
+                    <span className={`relative z-10 ${buttonTextStyles} text-[#a3a3a3]`}>-</span>
                 </button>
 
-               
                 <span className="text-white text-lg font-medium select-none" style={{ textShadow: '0 0 5px rgba(255,255,255,0.2)' }}>
                     {quantity}
                 </span>
 
-              
                 <button
                     className={plusButtonClasses}
                     onClick={handleIncrease}
                 >
-                    <span className={`${buttonTextStyles} text-white`}>+</span> {/* Текст "+" */}
+                    <span className={`${buttonTextStyles} text-white`}>+</span>
                 </button>
             </div>
         </div>

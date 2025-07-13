@@ -118,4 +118,35 @@ const menuItems: CardData[] = [
   },
 ];
 
+export const popularPizzas:CardData[] = [
+  {
+    title: "Argentina",
+    desc: "Filling: onion, potato, tomato, mushrooms, cheese, olives, meat...",
+    cost: "7,35",
+    img: "/menu/pizza-argentina.png",
+    category: "Vegetarian"
+  },
+  {
+    title: "Gribnaya",
+    desc: "Filling: onion, potato, tomato, mushrooms, cheese, olives, meat...",
+    cost: "6,35",
+    img: "/menu/pizza-mushroom.png",
+    category: "Mushroom"
+  },
+  {
+    title: "Tomato",
+    desc: "Filling: onion, potato, tomato, mushrooms, cheese, olives, meat...",
+    cost: "7,35",
+    img: "/menu/pizza-tomato.png",
+    category: "Vegetarian"
+  },
+  {
+    title: "Italian x2",
+    desc: "Filling: onion, potato, tomato, mushrooms, cheese, olives, meat...",
+    cost: "7,35",
+    img: "/menu/pizza-argentina.png",
+    category: "Vegetarian"
+  }
+]
+
 export default menuItems;

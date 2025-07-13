@@ -1,16 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState } from "react"; // useState удален
 import Card from "./Card";
 import { Button } from "../Button";
 import menuItems from "@/app/data/pizzas";
 import { pizzaCategories } from "@/app/data/pizzaCategories";
+import PopularPizzas from "./PopularPizzas";
 
 import type { CardProps } from "./Card";
 
 export default function Menu() {
-  const [activeCategory, setActiveCategory] = useState<string>("Show All");
+  const [activeCategory, setActiveCategory] = useState("Show All");
 
-  const filteredItems = menuItems.filter((item: CardProps) => {
+  const filteredItems = menuItems.filter((item) => {
     if (activeCategory === "Show All") {
       return true;
     }
@@ -29,14 +30,14 @@ export default function Menu() {
               <li key={category}>
                 <Button
                   text={category}
-                  bg={activeCategory === category} 
-                  onClick={() => setActiveCategory(category)} 
+                  bg={activeCategory === category}
+                  onClick={() => setActiveCategory(category)}
                 />
               </li>
             ))}
           </ul>
         </nav>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid mb-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
           {filteredItems.map((item: CardProps) => (
             <Card
               key={item.title}
@@ -44,7 +45,7 @@ export default function Menu() {
               desc={item.desc}
               cost={item.cost}
               img={item.img}
-              category={item.category}
+              category={item.category} // УДАЛЕНО: Этот пропс теперь не передается
             />
           ))}
           {filteredItems.length === 0 && (
@@ -53,6 +54,13 @@ export default function Menu() {
             </p>
           )}
         </div>
+        <div
+          className="font-medium mb-25 py-30 px-95 rounded-[39px] text-[43px] leading-[109%] text-shadow-custom text-white w-full text-center bg-cover bg-center"
+          style={{ backgroundImage: 'url("/menu/mp.jpg")' }}
+        >
+          MOST POPULAR PIZZA
+        </div>
+        <PopularPizzas/>
       </div>
     </section>
   );

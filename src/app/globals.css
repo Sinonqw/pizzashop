@@ -21,3 +21,6 @@ button {
 button:hover {
   transform: scale(1.1);
 }
+.text-shadow-custom {
+  text-shadow: 0 12px 10px rgba(14, 4, 4, 0.38);
+}
