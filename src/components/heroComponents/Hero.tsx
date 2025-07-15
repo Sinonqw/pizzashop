@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import ToggleButton from "./heroComponents/ToggleButton";
-import HeroText from "./heroComponents/HeroText";
-import HeroVideo from "./heroComponents/HeroVideo";
-import ModalVideo from "./heroComponents/ModalVideo";
+import ToggleButton from "./ToggleButton";
+import HeroText from "./HeroText";
+import HeroVideo from "./HeroVideo";
+import ModalVideo from "./ModalVideo";
 
 export default function Hero() {
   const [open, setOpen] = useState(false);

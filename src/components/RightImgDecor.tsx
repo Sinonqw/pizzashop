@@ -9,10 +9,9 @@ export default function RightImgDecor({ image }: { image: string }) {
           alt="main pizza"
           width={456}
           height={684}
-          className="w-full rounded-[46px] md:w-[456px]" // Adjust width for mobile, maintain aspect ratio
+          className="w-full rounded-[46px] md:w-[456px]"
         />
 
-        {/* Decorative PNGs adjusted for mobile or hidden */}
         <Image
           src="/forbg/fries.png"
           alt="fries"

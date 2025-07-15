@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react"; // useState удален, так как selectedSize теперь нет
+import React, { useState } from "react";
 import Image from "next/image";
 import { Circles } from "./Circles";
 import IngredientsButton from "./IngredientButton";

@@ -45,7 +45,7 @@ export default function Menu() {
               desc={item.desc}
               cost={item.cost}
               img={item.img}
-              category={item.category} // УДАЛЕНО: Этот пропс теперь не передается
+              category={item.category}
             />
           ))}
           {filteredItems.length === 0 && (

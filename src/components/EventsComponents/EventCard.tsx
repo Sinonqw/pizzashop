@@ -11,10 +11,9 @@ const EventCard: React.FC<EventCardProps> = ({ card, className }) => {
   return (
     <div
       key={card.id}
-      // Объединяем существующие классы с переданным className
       className={`relative flex flex-col justify-end overflow-hidden rounded-[15px] bg-[#2a1b12] min-h-[200px] md:min-h-[250px] ${
         card.span || ""
-      } ${className || ""}`} // Адаптировал min-height
+      } ${className || ""}`}
     >
       <Image
         src={card.image}
@@ -25,12 +24,9 @@ const EventCard: React.FC<EventCardProps> = ({ card, className }) => {
         quality={75}
       />
       <div className="relative z-10 p-4 max-w-full md:p-5 md:max-w-[204px]">
-        {" "}
-        {/* Адаптировал padding и max-width */}
         <h3 className="mb-8 text-[20px] font-medium leading-[109%] text-white max-w-[100%] md:mb-12 md:text-[25px] md:max-w-[180px]">
           {card.title}
         </h3>{" "}
-        {/* Адаптировал размер шрифта и max-width */}
         <Button text="More" />
       </div>
     </div>

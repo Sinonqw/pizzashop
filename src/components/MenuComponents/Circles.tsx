@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 interface CirclesProps {
-  onSizeChange: (size: string) => void; // Оставляем, так как Card будет передавать
+  onSizeChange: (size: string) => void;
 }
 
 export function Circles({ onSizeChange }: CirclesProps) {

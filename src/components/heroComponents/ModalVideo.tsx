@@ -11,7 +11,6 @@ interface Props {
 export default function ModalVideo({ open, onClose, src }: Props) {
   if (!open) return null;
 
-  // чтобы закрывать по клику на тёмный фон
   const stop = (e: MouseEvent) => e.stopPropagation();
 
   return (

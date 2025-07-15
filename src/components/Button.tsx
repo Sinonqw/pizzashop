@@ -3,9 +3,9 @@ import React from "react";
 
 export function Button({
   text,
-  bg = true, // true для активной (градиентный фон), false для неактивной (градиентная обводка/текст)
-  onClick, // Добавляем пропс для обработчика клика
-  className, // Меняем 'styles' на 'className' для консистентности с Tailwind
+  bg = true,
+  onClick,
+  className,
 }: {
   text: string;
   bg?: boolean;
@@ -15,8 +15,8 @@ export function Button({
   const baseClasses =
     "relative inline-flex items-center justify-center " +
     "rounded-full " +
-    "py-2 px-8 text-base font-medium " + // Адаптировано для мобильных: уменьшен паддинг и размер текста
-    "md:py-[10px] md:px-[56px] md:text-[17px] " + // Оригинальные стили для десктопа
+    "py-2 px-8 text-base font-medium " +
+    "md:py-[10px] md:px-[56px] md:text-[17px] " +
     "cursor-pointer select-none " +
     "transition-all duration-300 ease-in-out " +
     "focus:outline-none focus:ring-2 focus:ring-offset-2 " +
