@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import FooterColumn from "./FooterComponents/FooterColumn";
 import { socialLinks } from "@/app/data/socialLinks";
+
 export default function Footer() {
   const footerColumnsData = [
     {
@@ -39,15 +40,19 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="y-12 md:py-20 text-white">
+    <footer className="py-8 text-white md:py-20">
       {" "}
-      {/* Добавил bg-[#1a1a1a] как в предыдущем ответе */}
+      {/* Adjusted vertical padding for mobile */}
       <div className="container mx-auto px-4 md:px-10 lg:px-20 max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 lg:gap-24 mb-20">
-          <div className="md:col-span-1 flex items-start">
+        {/* Main grid for logo and footer columns */}
+        <div className="mb-12 grid grid-cols-1 gap-8 md:mb-20 md:grid-cols-5 md:gap-16 lg:gap-24">
+          {" "}
+          {/* Adjusted gap for mobile */}
+          <div className="md:col-span-1 flex items-start justify-center md:justify-start">
+            {" "}
+            {/* Centered logo on mobile */}
             <Logo />
           </div>
-
           {footerColumnsData.map((column, index) => (
             <FooterColumn
               key={index}
@@ -56,22 +61,28 @@ export default function Footer() {
             />
           ))}
         </div>
-        <div className="flex justify-between items-center">
-          <div className="font-extrabold text-[20px] leading-[110%] bg-gradient-to-br from-[#ff6432] to-[#ffa228] bg-clip-text text-transparent transition-all duration-300 hover:brightness-125">
+
+        {/* Bottom section: Phone number and social links */}
+        <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between md:gap-0">
+          {" "}
+          {/* Stacked on mobile, added gap */}
+          <div className="bg-gradient-to-br from-[#ff6432] to-[#ffa228] bg-clip-text text-center text-lg font-extrabold leading-[110%] text-transparent transition-all duration-300 hover:brightness-125 md:text-left md:text-[20px]">
+            {" "}
+            {/* Adjusted font size and text alignment for mobile */}
             <a href="tel:+380973985093">+38 (097) 398-50-93</a>
           </div>
           <div className="flex space-x-4">
             {socialLinks.map((link, index) => (
               <a
-                key={index} // Используем index как key, если массив статичен
+                key={index}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
               >
                 <link.Icon
-                  className="text-[#ff6432] hover:text-white transition-colors duration-200"
-                  size={26}
+                  className="text-[#ff6432] transition-colors duration-200 hover:text-white"
+                  size={24} // Slightly reduced size for mobile icons
                 />
               </a>
             ))}

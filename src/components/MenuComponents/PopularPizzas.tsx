@@ -11,7 +11,7 @@ export default function PopularPizzas() {
           desc={item.desc}
           cost={item.cost}
           img={item.img}
-          category={item.category} 
+          category={item.category}
         />
       ))}
     </div>

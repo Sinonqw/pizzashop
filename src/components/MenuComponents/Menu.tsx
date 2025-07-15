@@ -60,7 +60,7 @@ export default function Menu() {
         >
           MOST POPULAR PIZZA
         </div>
-        <PopularPizzas/>
+        <PopularPizzas />
       </div>
     </section>
   );

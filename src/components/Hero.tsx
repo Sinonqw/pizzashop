@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image       from 'next/image';
+import { useState } from "react";
+import Image from "next/image";
 
-import ToggleButton from './heroComponents/ToggleButton';
-import HeroText     from './heroComponents/HeroText';
-import HeroVideo    from './heroComponents/HeroVideo';
-import ModalVideo   from './heroComponents/ModalVideo';
+import ToggleButton from "./heroComponents/ToggleButton";
+import HeroText from "./heroComponents/HeroText";
+import HeroVideo from "./heroComponents/HeroVideo";
+import ModalVideo from "./heroComponents/ModalVideo";
 
 export default function Hero() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative h-screen mb-25">
+    <section className="relative h-screen">
       {/* декоративный SVG‑фон */}
       <Image
         src="/hero/hero-bg.svg"

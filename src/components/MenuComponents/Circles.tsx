@@ -54,7 +54,7 @@ export function Circles({ onSizeChange }: CirclesProps) {
 
   const handleCircleClick = (size: string) => {
     setActiveSize(size);
-    onSizeChange(size)
+    onSizeChange(size);
   };
 
   const renderCircle = (size: string) => {

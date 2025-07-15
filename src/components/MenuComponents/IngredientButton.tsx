@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const IngredientsButton: React.FC = () => {
   return (
@@ -25,11 +25,12 @@ const IngredientsButton: React.FC = () => {
           overflow-hidden            
         "
         style={{
-          background: 'linear-gradient(215deg, #ff5924 0%, #ffa229 100%)',
-          mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          maskComposite: 'exclude',
-          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMaskComposite: 'xor',
+          background: "linear-gradient(215deg, #ff5924 0%, #ffa229 100%)",
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
         }}
       ></span>
 
@@ -41,12 +42,12 @@ const IngredientsButton: React.FC = () => {
           leading-none                
         "
         style={{
-          background: 'linear-gradient(215deg, #ff5924 0%, #ffa229 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          color: 'transparent', 
-          textShadow: '0 0 10px rgba(255, 162, 41, 0.5)' 
+          background: "linear-gradient(215deg, #ff5924 0%, #ffa229 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          color: "transparent",
+          textShadow: "0 0 10px rgba(255, 162, 41, 0.5)",
         }}
       >
         + Ingredients

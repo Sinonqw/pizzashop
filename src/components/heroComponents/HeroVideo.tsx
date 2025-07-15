@@ -1,6 +1,6 @@
 // heroComponents/HeroVideoPreview.tsx
-'use client';
-import Image from 'next/image';
+"use client";
+import Image from "next/image";
 
 export default function HeroVideo({ onPlay }: { onPlay: () => void }) {
   return (

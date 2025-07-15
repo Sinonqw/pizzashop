@@ -1,12 +1,10 @@
-// components/EventsComponents/EventCard.tsx
-import Image from 'next/image';
-import { EventCard as EventCardType } from '@/app/data/events'; // Убедитесь в правильности пути
-import { Button } from '../Button'; // Убедитесь в правильности пути
+import Image from "next/image";
+import { EventCard as EventCardType } from "@/app/data/events";
+import { Button } from "../Button";
 
 interface EventCardProps {
   card: EventCardType;
-  // Добавляем className в интерфейс пропсов
-  className?: string; // Знак '?' делает пропс необязательным
+  className?: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({ card, className }) => {
@@ -14,7 +12,9 @@ const EventCard: React.FC<EventCardProps> = ({ card, className }) => {
     <div
       key={card.id}
       // Объединяем существующие классы с переданным className
-      className={`relative rounded-[15px] overflow-hidden bg-[#2a1b12] flex flex-col justify-end min-h-[250px] ${card.span || ''} ${className || ''}`}
+      className={`relative flex flex-col justify-end overflow-hidden rounded-[15px] bg-[#2a1b12] min-h-[200px] md:min-h-[250px] ${
+        card.span || ""
+      } ${className || ""}`} // Адаптировал min-height
     >
       <Image
         src={card.image}
@@ -24,11 +24,14 @@ const EventCard: React.FC<EventCardProps> = ({ card, className }) => {
         className="rounded-[15px]"
         quality={75}
       />
-      <div className="relative z-10 p-5 max-w-[204px]">
-        <h3 className="font-medium text-[25px] leading-[109%] text-white max-w-[180px] mb-12">{card.title}</h3>
-        <Button
-          text='More'
-        />
+      <div className="relative z-10 p-4 max-w-full md:p-5 md:max-w-[204px]">
+        {" "}
+        {/* Адаптировал padding и max-width */}
+        <h3 className="mb-8 text-[20px] font-medium leading-[109%] text-white max-w-[100%] md:mb-12 md:text-[25px] md:max-w-[180px]">
+          {card.title}
+        </h3>{" "}
+        {/* Адаптировал размер шрифта и max-width */}
+        <Button text="More" />
       </div>
     </div>
   );
