@@ -20,12 +20,12 @@ export default function Menu() {
 
   return (
     <section>
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4">
         <h2 className="text-center font-extrabold text-[69px] leading-[110%] text-white mb-12">
           Menu
         </h2>
         <nav className="mb-22">
-          <ul className="flex gap-6 justify-center">
+          <ul className="flex gap-6 flex-wrap justify-center">
             {pizzaCategories.map((category) => (
               <li key={category}>
                 <Button
@@ -37,7 +37,7 @@ export default function Menu() {
             ))}
           </ul>
         </nav>
-        <div className="grid mb-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid mb-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 justify-center">
           {filteredItems.map((item: CardProps) => (
             <Card
               key={item.title}
@@ -54,8 +54,9 @@ export default function Menu() {
             </p>
           )}
         </div>
+
         <div
-          className="font-medium mb-25 py-30 px-95 rounded-[39px] text-[43px] leading-[109%] text-shadow-custom text-white w-full text-center bg-cover bg-center"
+          className="font-medium mb-25 py-30  rounded-[39px] text-[43px] leading-[109%] text-shadow-custom text-white w-full text-center bg-cover bg-center"
           style={{ backgroundImage: 'url("/menu/mp.jpg")' }}
         >
           MOST POPULAR PIZZA

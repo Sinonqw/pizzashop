@@ -52,7 +52,7 @@ export default function ToggleButton() {
         width="190"
         height="66"
         src="/hero/vector2.svg"
-        className="absolute right-[-75%] top-[15px]"
+        className="absolute right-[-75%] top-[100%] hidden lg:block"
         alt=""
       />
     </div>

@@ -21,7 +21,7 @@ export default function Card({ title, desc, cost, img }: CardProps) {
   }
 
   return (
-    <div className="bg-[#210a01] relative rounded-[30px] pt-30 p-6 flex flex-col items-center shadow-lg w-[270px]">
+    <div className="bg-[#210a01] relative rounded-[30px] pt-30 p-6 flex flex-col items-center shadow-lg w-[270px] mx-auto">
       <Image
         width="160"
         height="158"

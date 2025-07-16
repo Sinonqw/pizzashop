@@ -1,51 +1,53 @@
+import React from "react";
 import Logo from "./Logo";
 import FooterColumn from "./FooterComponents/FooterColumn";
 import { socialLinks } from "@/app/data/socialLinks";
 
-export default function Footer() {
-  const footerColumnsData = [
-    {
-      title: "Home",
-      links: [
-        { text: "To Order", href: "#" },
-        { text: "About us", href: "#" },
-        { text: "Events", href: "#" },
-        { text: "Menu", href: "#" },
-      ],
-    },
-    {
-      title: "Events",
-      links: [
-        { text: "3 Pizza 1 Free Coffee", href: "#" },
-        { text: "2 Pizza for 1 Price", href: "#" },
-        { text: "Kitchen Tour", href: "#" },
-      ],
-    },
-    {
-      title: "Menu",
-      links: [
-        { text: "Show All", href: "#" },
-        { text: "Seaproducts", href: "#" },
-        { text: "Vegan", href: "#" },
-        { text: "Meat", href: "#" },
-      ],
-    },
-    {
-      title: "About Us",
-      links: [
-        { text: "Our History", href: "#" },
-        { text: "Why We?", href: "#" },
-      ],
-    },
-  ];
+const footerColumnsData = [
+  {
+    title: "Home",
+    links: [
+      { text: "To Order", href: "#" },
+      { text: "About us", href: "#" },
+      { text: "Events", href: "#" },
+      { text: "Menu", href: "#" },
+    ],
+  },
+  {
+    title: "Events",
+    links: [
+      { text: "3 Pizza 1 Free Coffee", href: "#" },
+      { text: "2 Pizza for 1 Price", href: "#" },
+      { text: "Kitchen Tour", href: "#" },
+    ],
+  },
+  {
+    title: "Menu",
+    links: [
+      { text: "Show All", href: "#" },
+      { text: "Seaproducts", href: "#" },
+      { text: "Vegan", href: "#" },
+      { text: "Meat", href: "#" },
+    ],
+  },
+  {
+    title: "About Us",
+    links: [
+      { text: "Our History", href: "#" },
+      { text: "Why We?", href: "#" },
+    ],
+  },
+];
 
+export default function Footer() {
   return (
     <footer className="py-8 text-white md:py-20">
       <div className="container mx-auto px-4 md:px-10 lg:px-20 max-w-[1200px]">
-        <div className="mb-12 grid grid-cols-1 gap-8 md:mb-20 md:grid-cols-5 md:gap-16 lg:gap-24">
-          <div className="md:col-span-1 flex items-start justify-center md:justify-start">
-            <Logo />
-          </div>
+        {/* Логотип на десктопах */}
+        <div className="hidden md:flex md:col-span-1 md:items-start md:justify-start mb-4">
+          <Logo />
+        </div>
+        <div className="mb-12 grid grid-cols-2 grid-rows-2 gap-6 md:grid-cols-4 md:grid-rows-1 md:gap-16 lg:gap-24">
           {footerColumnsData.map((column, index) => (
             <FooterColumn
               key={index}

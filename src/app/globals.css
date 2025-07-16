@@ -6,10 +6,12 @@
 
 .container {
   max-width: 1387px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 body {
   background: linear-gradient(223deg, #1e0c00 0%, #1f0700 31.43%, #170a00 69.37%, #1e0d00 100%);
+  overflow-x: hidden;
 }
 .toggle-btn {
   position: absolute;
@@ -22,4 +24,20 @@ button:hover {
 }
 .text-shadow-custom {
   text-shadow: 0 12px 10px rgba(14, 4, 4, 0.38);
+}
+@media (max-width: 768px) {
+  .btn-hide-md {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .btn-hide-md {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1024px){
+  .lghidden {
+    display: none;
+  }
 }

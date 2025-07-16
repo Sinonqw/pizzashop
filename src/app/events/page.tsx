@@ -1,3 +1,7 @@
+import Events from "@/components/EventsComponents/Events"
+
 export default function page() {
-    return <div>page</div>
+    return (
+        <Events/>
+    )
 }

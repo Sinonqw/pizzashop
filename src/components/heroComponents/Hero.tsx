@@ -12,7 +12,7 @@ export default function Hero() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="relative h-screen">
+    <section className="relative h-screen mb-120 lg:mb-0">
       {/* декоративный SVG‑фон */}
       <Image
         src="/hero/hero-bg.svg"
@@ -22,16 +22,16 @@ export default function Hero() {
         className="pointer-events-none absolute left-20 top-0 select-none"
       />
 
-      {/* основной контент                                           */}
-      <div className="container flex items-center justify-between gap-6">
-        {/* ---------- левая колонка ---------- */}
+      {/* основной контент */}
+      <div className="container gap-20 flex flex-col-reverse lg:flex-row items-center justify-between gap-6 sm:gap-15 lg:gap-14">
+        {/* левая колонка */}
         <div className="max-w-[540px]">
           <HeroText />
           <HeroVideo onPlay={() => setOpen(true)} />
           <ToggleButton />
         </div>
 
-        {/* ---------- правая колонка ---------- */}
+        {/* правая колонка */}
         <div className="relative shrink-0">
           <Image
             src="/hero/image.jpg"
@@ -59,7 +59,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* модалка с видео                                           */}
+      {/* модалка с видео */}
       <ModalVideo
         open={open}
         onClose={() => setOpen(false)}

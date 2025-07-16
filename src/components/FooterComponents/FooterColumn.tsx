@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface FooterLink {
   text: string;
@@ -10,14 +10,17 @@ interface FooterColumnProps {
   links: FooterLink[];
 }
 
-const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => {
+export default function FooterColumn({ title, links }: FooterColumnProps) {
   return (
-    <div className="md:col-span-1"> 
+    <div>
       <h4 className="font-semibold text-lg mb-4 text-[#FF7020]">{title}</h4>
       <ul className="space-y-2 text-[#b0b0b0]">
         {links.map((link, index) => (
-          <li key={index}> 
-            <a href={link.href} className="hover:text-white transition-colors duration-200">
+          <li key={index}>
+            <a
+              href={link.href}
+              className="hover:text-white transition-colors duration-200"
+            >
               {link.text}
             </a>
           </li>
@@ -25,6 +28,4 @@ const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => {
       </ul>
     </div>
   );
-};
-
-export default FooterColumn;
+}
