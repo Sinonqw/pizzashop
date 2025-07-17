@@ -1,14 +1,53 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import Image from "next/image";
 import MenuLink from "./MenuLink";
 import Logo from "./Logo";
 import { motion, AnimatePresence } from "framer-motion";
+import Modal from "./Modal";
+import GuestLoginOrCheckoutForm from "./GuestLoginOrCheckoutForm";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isGuestLoggedIn, setIsGuestLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const guestId = localStorage.getItem('guestId');
+      if (guestId) {
+        setIsGuestLoggedIn(true);
+      }
+    }
+  }, []);
+
+  const handleOpenLoginModal = () => {
+    setIsLoginModalOpen(true);
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleCloseLoginModal = () => {
+      setIsLoginModalOpen(false);
+  };
+
+  const handleGuestLoginSuccess = (
+    userId: string,
+    name: string,
+    phone: string
+  ) => {
+    console.log("Гость успешно вошел:", { userId, name, phone });
+
+    localStorage.setItem("guestId", userId);
+    localStorage.setItem("guestName", name);
+    localStorage.setItem("guestPhone", phone);
+
+    setIsGuestLoggedIn(true);
+    handleCloseLoginModal();
+  };
 
   return (
     <header className="py-4 mb-10 md:mb-0 md:py-6">
@@ -36,9 +75,14 @@ export default function Header() {
 
           {/* Right actions */}
           <div className="flex items-center z-100 gap-4 md:gap-6">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button text="Log in" className="hidden md:block z-100" />
-            </motion.div>
+            {!isGuestLoggedIn && (
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="hidden md:block z-100">  
+                <Button
+                  text="Log in"
+                  onClick={handleOpenLoginModal}
+                />
+              </motion.div>
+            )}
 
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -101,13 +145,22 @@ export default function Header() {
                   />
                 </motion.div>
               ))}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                <Button text="Log in" onClick={() => setIsMobileMenuOpen(false)} />
-              </motion.div>
+              {!isGuestLoggedIn && (
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button text="Log in" onClick={handleOpenLoginModal} />
+                </motion.div>
+              )}
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <Modal isOpen={isLoginModalOpen} onClose={handleCloseLoginModal}>
+        <GuestLoginOrCheckoutForm onLoginSuccess={handleGuestLoginSuccess} />
+      </Modal>
     </header>
   );
 }
