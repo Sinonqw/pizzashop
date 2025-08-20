@@ -1,4 +1,3 @@
-// components/GuestLoginOrCheckoutForm.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -47,8 +46,12 @@ export default function GuestLoginOrCheckoutForm({
       console.log("Успешный вход гостя:", result);
 
       onLoginSuccess(result.userId, result.name, result.phone);
-    } catch (err: any) {
-      setError(err.message || "Произошла непредвиденная ошибка.");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Произошла непредвиденная ошибка.");
+      }
     } finally {
       setLoading(false);
     }
@@ -60,8 +63,6 @@ export default function GuestLoginOrCheckoutForm({
       className="p-6 rounded-xl shadow-lg bg-gray-900
                  border border-gray-800 relative overflow-hidden"
     >
-      {/* УДАЛЕНО: Декоративная полоска сверху была удалена */}
-
       <h2 className="text-2xl font-bold mb-6 text-white text-center pt-4">
         Добро пожаловать в PizzaHub!
       </h2>
