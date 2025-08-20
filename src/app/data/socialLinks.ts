@@ -4,7 +4,7 @@ export const socialLinks = [
   {
     href: "https://www.instagram.com",
     label: "Instagram",
-    Icon: FaInstagram, // Храним компонент иконки напрямую
+    Icon: FaInstagram, 
   },
   {
     href: "https://www.facebook.com",
@@ -12,8 +12,7 @@ export const socialLinks = [
     Icon: FaFacebookF,
   },
   {
-    href: "https://twitter.com", // Или "https://x.com" для X
+    href: "https://twitter.com", 
     label: "Twitter/X",
-    Icon: FaTwitter, // Используйте FaXTwitter, если хотите новую иконку X
-  },
+    Icon: FaTwitter, 
 ];

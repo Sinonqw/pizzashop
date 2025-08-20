@@ -1,15 +1,17 @@
 // components/GuestLoginOrCheckoutForm.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface GuestLoginOrCheckoutFormProps {
   onLoginSuccess: (userId: string, name: string, phone: string) => void;
 }
 
-export default function GuestLoginOrCheckoutForm({ onLoginSuccess }: GuestLoginOrCheckoutFormProps) {
-  const [name, setName] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
+export default function GuestLoginOrCheckoutForm({
+  onLoginSuccess,
+}: GuestLoginOrCheckoutFormProps) {
+  const [name, setName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -19,32 +21,34 @@ export default function GuestLoginOrCheckoutForm({ onLoginSuccess }: GuestLoginO
     setLoading(true);
 
     if (!name.trim() || !phone.trim()) {
-      setError('Пожалуйста, введите ваше имя и номер телефона.');
+      setError("Пожалуйста, введите ваше имя и номер телефона.");
       setLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('/api/guest-login', {
-        method: 'POST',
+      const response = await fetch("/api/guest-login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, phone }),
       });
 
       if (!response.ok) {
         const errorData: { message?: string } = await response.json();
-        throw new Error(errorData.message || 'Ошибка входа. Попробуйте еще раз.');
+        throw new Error(
+          errorData.message || "Ошибка входа. Попробуйте еще раз."
+        );
       }
 
-      const result: { userId: string; name: string; phone: string } = await response.json();
-      console.log('Успешный вход гостя:', result);
+      const result: { userId: string; name: string; phone: string } =
+        await response.json();
+      console.log("Успешный вход гостя:", result);
 
       onLoginSuccess(result.userId, result.name, result.phone);
-
     } catch (err: any) {
-      setError(err.message || 'Произошла непредвиденная ошибка.');
+      setError(err.message || "Произошла непредвиденная ошибка.");
     } finally {
       setLoading(false);
     }
@@ -122,7 +126,7 @@ export default function GuestLoginOrCheckoutForm({ onLoginSuccess }: GuestLoginO
                    disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-105"
         disabled={loading}
       >
-        {loading ? 'Обработка...' : 'Продолжить заказ'}
+        {loading ? "Обработка..." : "Продолжить заказ"}
       </button>
     </form>
   );
