@@ -15,4 +15,5 @@ export const socialLinks = [
     href: "https://twitter.com", 
     label: "Twitter/X",
     Icon: FaTwitter, 
+  }
 ];
